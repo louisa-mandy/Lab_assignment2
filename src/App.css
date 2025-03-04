@@ -1,0 +1,68 @@
+
+.Todo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  background: #333;
+  color: white;
+  padding: 10px 15px;
+  margin: 8px 0;
+  border-radius: 8px;
+}
+
+.Todo p {
+  flex: 1; 
+  margin: 0;
+  font-size: 1.2em;
+  padding-right: 10px; 
+}
+
+.Todo div {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+}
+
+.Todo input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+.Todo .faPenToSquare, 
+.Todo .faTrash {
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: color 0.3s ease;
+}
+
+.Todo .faPenToSquare:hover {
+  color: yellow;
+}
+
+.Todo .faTrash:hover {
+  color: red;
+}
+
+/* Button container to add spacing */
+.button-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Buttons styling */
+.toggle-btn, .todo-btn {
+  padding: 10px 15px;
+  margin: 5px; 
+  background-color: #646cff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.toggle-btn:hover, .todo-btn:hover {
+  background-color: #535bf2;
+}
