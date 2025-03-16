@@ -1,35 +1,35 @@
-import { Link } from "react-router-dom";
-import Navbar from "./Navbar";
+import { auth } from "../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { Link } from "react-router-dom"; // ✅ Import Link
 
-function ProfilePage() {
-  return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-      <div className="bg-white p-6 rounded-lg shadow-md text-center w-80">
-      <img
-        className="w-24 h-24 rounded-full mx-auto mb-4"
-        src="/kirby.png"
-        alt="Profile"
-        style={{ width: "450px", height: "450px", borderRadius: "5%" }}
-      />
+const ProfilePage = () => {
+    const [user] = useAuthState(auth);
 
-        <h2 className="text-2xl font-semibold">Louisa Mandy Halim</h2>
-        <p className="text-gray-600">Computer Science Undergraduate Student</p>
+    return (
+        <div className="flex flex-col items-center justify-center p-6">
+            <h2 className="text-2xl font-semibold mb-4">Profile</h2>
 
-        &nbsp;&nbsp;
+            {user ? (
+                <>
+                    <p className="text-lg">Email: {user.email}</p>
+                    <img
+                        className="w-32 h-32 rounded-full mt-4"
+                        src={user.photoURL || "https://via.placeholder.com/150"}
+                        alt="Profile"
+                    />
+                </>
+            ) : (
+                <p className="text-red-500">Please log in.</p>
+            )}
 
-        <ul>
-          <li>Age : 19</li>
-          <li>University : Binus University International</li>
-          <li>Hobbies : Sleeping & Playing Games</li>
-        </ul>
-        <Link to="/">
-          <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
-            Back to Home
-          </button>
-        </Link>
-      </div>
-    </div>
-  );
-}
+            {/* ✅ Back to Home Button */}
+            <Link to="/landingpage">
+                <button className="mt-6 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                    Back to Landing Page
+                </button>
+            </Link>
+        </div>
+    );
+};
 
 export default ProfilePage;

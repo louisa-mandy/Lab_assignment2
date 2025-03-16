@@ -1,15 +1,32 @@
+import { auth } from "../firebase";
+import { signOut } from "firebase/auth";
 import { Link } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
 
-function Navbar() {
+const Navbar = () => {
+  const [user] = useAuthState(auth);
+
+  const handleLogout = async () => {
+    await signOut(auth);
+  };
+
   return (
-    <nav className="bg-gray-800 text-white p-4 flex justify-between">
-      <Link to="/" className="text-lg font-bold hover:text-gray-300">Home</Link>
-      <div className="space-x-4">
-        <Link to="/todo" className="hover:text-gray-300">To-Do List</Link>
-        <Link to="/profile" className="hover:text-gray-300">Profile</Link>
-      </div>
+    <nav>
+      <Link to="/">Home</Link>
+      {user ? (
+        <>
+          <Link to="/todo">To-Do</Link>
+          <Link to="/profile">Profile</Link>
+          <button onClick={handleLogout}>Logout</button>
+        </>
+      ) : (
+        <>
+          <Link to="/login">Login</Link>
+          <Link to="/register">Register</Link>
+        </>
+      )}
     </nav>
   );
-}
+};
 
 export default Navbar;

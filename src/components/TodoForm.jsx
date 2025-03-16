@@ -1,3 +1,10 @@
+// JavaScript 
+// src/AddTodo.js 
+// import {db} from '../firebase' 
+// import {collection, addDoc, Timestamp} from 'firebase/firestore'
+
+
+// import { auth } from "../firebase"; 
 import React, { useState } from 'react';
 
 export const TodoForm = ({ addToDo }) => {
