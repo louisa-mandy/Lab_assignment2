@@ -1,8 +1,24 @@
-# React + Vite
+Vite React To-Do App with Firebase Authentication & Firestore
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a Vite-powered React To-Do application that integrates Firebase Authentication and Cloud Firestore for user registration, login, and task management. Users can register, log in, and manage their to-do tasks securely. Tasks are stored in Firestore, allowing real-time updates and data persistence.
 
-Currently, two official plugins are available:
+Configure Firebase
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔹 Step 1: Create a Firebase Project
+
+Go to the Firebase Console.
+
+Click "Add Project", set up a new project, and enable Firestore.
+
+Navigate to Authentication → Sign-in Method and enable Email/Password.
+
+🔹 Step 2: Get Firebase Config
+
+In Firebase, go to Project Settings → General.
+
+Scroll to "Your Apps" and click "Add App" (choose Web App).
+
+Copy your Firebase config (API keys).
+
+Running the server 
+🔹 npm run dev 
