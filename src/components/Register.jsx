@@ -23,18 +23,17 @@ const Register = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-            <h2 className="text-2xl font-bold mb-4">Register</h2>
+        <div className="register-container">
+            <h2>Register</h2>
 
-            {error && <p className="text-red-500 mb-2">{error}</p>}
+            {error && <p className="error-text">{error}</p>}
 
-            <form onSubmit={handleRegister} className="flex flex-col w-80 bg-white p-6 rounded-lg shadow-md">
+            <form onSubmit={handleRegister}>
                 <input 
                     type="email" 
                     placeholder="Email" 
                     value={email} 
                     onChange={(e) => setEmail(e.target.value)} 
-                    className="mb-2 px-4 py-2 border rounded"
                     required 
                 />
                 <input 
@@ -42,21 +41,17 @@ const Register = () => {
                     placeholder="Password" 
                     value={password} 
                     onChange={(e) => setPassword(e.target.value)} 
-                    className="mb-2 px-4 py-2 border rounded"
                     required 
                 />
 
-                <button type="submit" className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
+                <button type="submit" className="register-btn">
                     Register
                 </button>
             </form>
 
-            {/* Login Button */}
-            <p className="mt-4 text-gray-600">Already have an account?</p>
+            <p className="login-text">Already have an account?</p>
             <Link to="/login">
-                <button className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-                    Login
-                </button>
+                <button className="login-btn">Login</button>
             </Link>
         </div>
     );
